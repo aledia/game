@@ -1,0 +1,45 @@
+
+body{
+    background-image: url(../img/descarga.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    margin:0;
+    padding: 0;
+}
+
+#container{
+    border: 1px solid black;
+    background-color: aliceblue;
+    display:none;
+   
+    }
+    #startGame{
+        border: 1px solid rgb(80, 53, 25);
+        width: 450px;
+        height: 200px;
+        border-radius: 10px;
+        justify-content: center;
+         align-items: center;
+         color:white;
+
+    }
+    #startGame h1{
+        font-size: 50px;
+        text-align: center;
+        color:rgb(80, 53, 25);
+        
+    }
+     .btnStart{
+         background-color: rgb(80, 53, 25);
+         padding: 10px;
+         border-radius:10px;
+         display: flex;
+         margin-left: 180px;
+         outline: none;
+         
+        
+    }
