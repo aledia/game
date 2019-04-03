@@ -51,7 +51,9 @@ var Game = {
         this.arrayFire.forEach((bullet)=>{
             bullet.draw()
             bullet.pepe()
+            this.checkBulletCollision(bullet)
         });
+       
         this.arrayEnemy.forEach(enemy =>{
             enemy.draw();
             enemy.move();
@@ -83,6 +85,32 @@ var Game = {
         })
       
     },
+    collision: function(a, b){
+        if (b.x < a.x + 50 &&
+            a.x < b.x + 100 && 
+            b.y < a.y + 60 &&
+            a.y < b.y + 100) return true;
+            else return false;
+    },
+    //comprobar si colisiona a y b
+    checkBulletCollision: function(bullet){
+        console.log(this.arrayEnemy.length)
+         for(var i=0; i<this.arrayEnemy.length; i++){
+             if(this.collision(bullet,this.arrayEnemy[i])){
+                 this.arrayEnemy.splice(this.arrayEnemy[i],1);
+                
+            
+             }
+         }//comprobar si una bala colisiona con enemigo
+        // this.arrayEnemy.some(enemy=>{
+        //     if(this.collision(bullet,enemy)){
+        //         this.arrayEnemy.splice(enemy,1)
+        //         return true
+        //     }else{
+        //         return false
+        //     }
+        // })
+    },
     fire: function(){
 
         if(this.arrayFire.length < 7){
@@ -100,19 +128,19 @@ var Game = {
         window.onkeydown = (e) =>{
             switch(e.keyCode){
                 case 37:
-                this.player.x--
+                this.player.x-=5
                 break;
                
                 case 39:
-                this.player.x++
+                this.player.x+=5
                 break;
 
                 case 38:
-                this.player.y--
+                this.player.y-=5
                 break;
                
                 case 40:
-                this.player.y++
+                this.player.y+=5
                 break;
 
                 case 32:
