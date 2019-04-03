@@ -1,8 +1,8 @@
 class Bullet {
     constructor (game){
         this.game = game
-        this.x = this.game.player.x+20,
-        this.y = this.game.player.y+20,
+        this.x = this.game.player.x+100,
+        this.y = this.game.player.y+120,
         this.ctx = game.ctx,
        
         this.img = new Image(),
