@@ -1,8 +1,9 @@
 
 body{
-    background-image: url("../img/1.jpg");
-    /*background-size: cover;
+   /* background-image: url("../img/1.jpg");
+    background-size: cover;
     background-repeat: no-repeat;*/
+    background-color: black;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -33,7 +34,8 @@ body{
         flex-direction: column;
          color:black;
          font-size: 40px;
-         
+         background-image: url(../img/portada.jpg);
+         background-size: cover;
          
 
     }
@@ -44,11 +46,11 @@ body{
         
     }*/
      .btnStart{
-         background-color: rgb(80, 53, 25);
+         background-color: rgb(107, 145, 167);
          padding: 10px;
          border-radius:10px;
          display: flex;
-         
+         justify-content: end;
          outline: none;
          
         

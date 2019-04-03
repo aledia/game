@@ -3,7 +3,7 @@ class Background {
 
         this.ctx = ctx,
         this.img = new Image(),
-        this.img.src= "./img/fondo.jpg",
+        this.img.src= "./img/winterfell.png",
         this.w = w,
         this.h = h
     }

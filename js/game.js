@@ -23,6 +23,7 @@ var Game = {
     },
 
     reset:function(){
+     
         this.player = new Player(this.w-200, this.h -150, this.ctx) 
         
        // this.zombie2 = new Zombie(10, this.h -200, this.ctx) 
@@ -51,18 +52,11 @@ var Game = {
         }) 
         this.clearEnemy();
         
-        //this.zombie.draw();
-        //this.zombie2.draw();
-
-       // this.clearScreen()
-        //this.drawAll()
-        //this.moveAll()
-            // if(this.counter%60===0){
-            // }
+        
 
         this.counter++;
     }, 1000 / 60)
-    //pinta 
+    
 },
 
     clearScreen: function() {
@@ -74,7 +68,7 @@ var Game = {
     },
 
     generateEnemy: function(){
-        this.arrayEnemy.push(new Zombie(10, this.h -140, this.ctx))        
+        this.arrayEnemy.push(new Zombie(10, this.h -80, this.ctx))        
     },
     clearEnemy: function(){
     

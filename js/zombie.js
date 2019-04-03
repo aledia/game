@@ -4,11 +4,11 @@ class Zombie{
         this.y = y,
         this.ctx = ctx,
         this.img = new Image(),
-        this.img.src = './img/zombie.png'
+        this.img.src = './img/pvw_walk.gif'
 
     }
     draw(){
-        this.ctx.drawImage(this.img, this.x, this.y,50,50)
+        this.ctx.drawImage(this.img, this.x, this.y,100,100)
     }
     move(){
         this.x++;
