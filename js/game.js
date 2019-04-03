@@ -7,6 +7,7 @@ var Game = {
     intervalID: '',
     counter: 0,
     frameCounter:undefined,
+    arrayFire: [],
    
     
 
@@ -24,11 +25,12 @@ var Game = {
 
     reset:function(){
      
-        this.player = new Player(this.w-200, this.h -150, this.ctx) 
+        this.player = new Player(10, 20, this.ctx) 
         
-       // this.zombie2 = new Zombie(10, this.h -200, this.ctx) 
+      
 
-        this.background=new Background(this.ctx,this.w,this.h)
+        this.background=new Background(this.ctx,this.w,this.h);
+        this.bullet=new Bullet(this)
 
     },
 
@@ -46,12 +48,16 @@ var Game = {
         this.clearScreen();
         this.background.draw();
         this.player.draw();
+        this.arrayFire.forEach((bullet)=>{
+            bullet.draw()
+            bullet.pepe()
+        });
         this.arrayEnemy.forEach(enemy =>{
             enemy.draw();
             enemy.move();
         }) 
         this.clearEnemy();
-        
+        this.clearFire();
         
 
         this.counter++;
@@ -68,16 +74,28 @@ var Game = {
     },
 
     generateEnemy: function(){
-        this.arrayEnemy.push(new Zombie(10, this.h -80, this.ctx))        
+        this.arrayEnemy.push(new Zombie(750, this.h -80, this.ctx))        
     },
     clearEnemy: function(){
     
         this.arrayEnemy = this.arrayEnemy.filter(enemy => {
-            return enemy.x < 750
+            return enemy.x >= -100
         })
       
     },
+    fire: function(){
 
+        if(this.arrayFire.length < 7){
+
+            this.arrayFire.push(new Bullet(this))
+        }
+    },
+    clearFire: function(){
+        this.arrayFire = this.arrayFire.filter( fire => {
+            return fire.y < 400;
+        })
+    },
+   
     movement: function(){
         window.onkeydown = (e) =>{
             switch(e.keyCode){
@@ -96,9 +114,13 @@ var Game = {
                 case 40:
                 this.player.y++
                 break;
+
+                case 32:
+                this.fire();
+                break;
             }
         }
-    }
+    },
                 
     
    

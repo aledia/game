@@ -11,6 +11,6 @@ class Zombie{
         this.ctx.drawImage(this.img, this.x, this.y,100,100)
     }
     move(){
-        this.x++;
+        this.x--;
     }
 }
