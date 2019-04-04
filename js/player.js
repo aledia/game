@@ -7,8 +7,14 @@
         this.img.src = './img/drogon2.png'
         this.w = 750;
         this.h = 400;
+        this.orientation = "right";
     }
     draw(){
-        this.ctx.drawImage(this.img, this.x, this.y,150,150)
+        if(this.orientation !== "right"){
+            this.img.src = './img/drogon.png'
+        }else{
+            this.img.src = './img/drogon2.png'
+        }
+        this.ctx.drawImage(this.img, this.x, this.y,150, 150)
     }
 }
