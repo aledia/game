@@ -1,8 +1,8 @@
 
 body{
-    background-image: url(../img/images.jpeg);
+  /*  background-image: url(../img/images.jpeg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
     display:flex;
     justify-content: center;
     align-items:center;
@@ -17,4 +17,18 @@ body{
     position:relative;
    
     }
+  .oculto {
+    opacity: 0;
+    transition: opacity .5s;
+  }
+  .mostar{
+     opacity: 1;
   
+  }
+  #gameOver{
+      display: block;
+      width: 500px;
+      height: 500px;
+      background-color: brown;
+      color: white;
+  }

@@ -9,7 +9,7 @@ var Game = {
     frameCounter: undefined,
     arrayFire: [],
     enemyCounter:0,
-
+    enemiesToWin: 7,
 
 
     initGame: function () {
@@ -19,6 +19,8 @@ var Game = {
         this.frameCounter = 340;
         this.arrayEnemy = [];
         this.startGame();
+        
+
     },
 
     reset: function () {
@@ -35,9 +37,14 @@ var Game = {
     startGame: function () {
         this.reset();
         this.movement();
+        
         this.intervalID = setInterval(() => {
+            if(this.enemyCounter >= this.enemiesToWin) {
+                alert("WIN!")
+                audio.pause();
+            }
             this.frameCounter++;
-            if (this.frameCounter % 550 == 0) {
+            if (this.frameCounter % 350 == 0) { //si le pongo menos salen muchos seguidos
                 this.generateEnemy();
 
             }
@@ -97,12 +104,24 @@ var Game = {
     },
 
     collision: function (a, b) {
-        
-        if (b.x < a.x + a.w &&
-            a.x < b.x + b.w &&
-            b.y < a.y + a.h &&
-            a.y < b.y + b.h) return true;
-        else return false;
+        if(a.orientation === undefined || a.orientation === "right"){ //xk khalessi no tiene orientación
+
+            if (b.x < a.x + a.w &&
+                a.x < b.x + b.w &&
+                b.y < a.y + a.h &&
+                a.y < b.y + b.h) {
+                    return true;
+                }
+            else return false;
+        }else{
+            if (b.x < a.x - 35 - a.w &&
+                a.x < b.x + b.w &&
+                b.y < a.y + a.h &&
+                a.y < b.y + b.h) {
+                    return true;
+                }
+            else return false;
+        }
     },
 
     //comprobar si colisiona a y b
@@ -124,7 +143,7 @@ var Game = {
         for (var i = 0; i < this.arrayEnemy.length; i++) {
             if (this.collision(this.khalessi, this.arrayEnemy[i])) {
                 clearInterval(this.intervalID)
-               alert ("Has perdido")
+               alert ("Has perdido");
 
             }
         }
@@ -135,9 +154,9 @@ var Game = {
 
     fire: function () {
 
-        if (this.arrayFire.length < 7) {
+        if (this.arrayFire.length < 17) {
 
-            this.arrayFire.push(new Bullet(this))
+            this.arrayFire.push(new Bullet(this, this.player.orientation))
         }
     },
 
@@ -168,6 +187,7 @@ var Game = {
         window.onkeydown = (e) => {
             switch (e.keyCode) {
                 case 37:
+                    this.player.orientation = "left"
                     this.player.x -= 5;
                     if (this.player.x <= 0) {
                         this.player.x += 5;
@@ -177,6 +197,7 @@ var Game = {
                     break;
 
                 case 39:
+                this.player.orientation = "right"
                     this.player.x += 5;
                     if (this.player.x + 150 >= 750) {
                         this.player.x -= 5;

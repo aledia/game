@@ -8,6 +8,7 @@
         this.w = 750;
         this.h = 400;
         this.orientation = "right";
+       
     }
     draw(){
         if(this.orientation !== "right"){
