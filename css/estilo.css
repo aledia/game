@@ -1,68 +1,57 @@
+body {
 
-body{
-   /* background-image: url("../img/1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;*/
     background-color: black;
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     height: 100vh;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
-/*
-#canvas{ 
-    display:none;
-    border: 1px solid black; 
-  /* background-image: url(../img/bosque-800.jpg);
-    background-color:white;
+
+
+#startGame {
+    border: 1px solid black;
     width: 750px;
     height: 400px;
-   
-   
-    }*/
-    
-    #startGame{
-        border: 1px solid black;
-        width: 750px;
-        height: 400px;
-        border-radius: 10px;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-         color:black;
-         font-size: 40px;
-         background-image: url(../img/portada.jpg);
-         background-size: cover;
-         
-
-    }
-  /*  #startGame h1{
-        font-size: 50px;
-        text-align: center;
-        
-        
-    }*/
-     .btnStart{
-         background-color: rgb(107, 145, 167);
-         padding: 10px;
-         border-radius:10px;
-         display: flex;
-         justify-content: end;
-         outline: none;
-         
-        
-    }
-    .noVisible{
-        display:none;
-    }
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    font-size: 40px;
+    background-image: url(../img/reydelanoche.gif);
+    background-size: cover;
+    position: relative;
 
 
-    #container{
-        width: 700px;
-        height: 400px;
-        /* background-color: white; */
-        display: none;
-    }
+}
+#starrtGame img{
+ position: absolute;
+ left:350px;
+}
+.btnStart {
+    background-color: rgb(107, 145, 167);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+
+
+
+}
+.btnStart:hover{
+    background-color: rgb(17, 106, 148);
+}
+.noVisible {
+    display: none;
+}
+
+
+#container {
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+    display: none;
+}

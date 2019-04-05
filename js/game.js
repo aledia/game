@@ -18,7 +18,11 @@ var Game = {
         this.ctx = this.canvas.getContext("2d")
         this.frameCounter = 340;
         this.arrayEnemy = [];
-        this.startGame();
+        //this.startGame();
+        this.myaudio= new Audio('song/jdt.mp3');
+        this.myaudio.onload=this.startGame();
+        this.score= 0;
+      
         
 
     },
@@ -37,11 +41,13 @@ var Game = {
     startGame: function () {
         this.reset();
         this.movement();
+        this.myaudio.play();
         
         this.intervalID = setInterval(() => {
             if(this.enemyCounter >= this.enemiesToWin) {
-                alert("WIN!")
-                audio.pause();
+                alert("¡¡ERES UN GRAN ASESINO DE CAMINANTES BLANCOS!!");
+                this.myaudio.pause();
+                
             }
             this.frameCounter++;
             if (this.frameCounter % 350 == 0) { //si le pongo menos salen muchos seguidos
@@ -102,7 +108,7 @@ var Game = {
         })
 
     },
-
+   
     collision: function (a, b) {
         if(a.orientation === undefined || a.orientation === "right"){ //xk khalessi no tiene orientación
 
@@ -144,6 +150,7 @@ var Game = {
             if (this.collision(this.khalessi, this.arrayEnemy[i])) {
                 clearInterval(this.intervalID)
                alert ("Has perdido");
+               this.myaudio.pause();
 
             }
         }

@@ -5,7 +5,7 @@ class Bullet {
         this.y = this.game.player.y+120,
         this.ctx = game.ctx,
         this.w = 20,
-        this.h = 40,
+        this.h = 30,
         this.orientation = orientation,
         this.img = new Image(),
         this.img.src = './img/fireball.png';
